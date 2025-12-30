@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
+import 'package:meal_go/binding/auth_binding.dart';
 import 'package:meal_go/config/routes/app_pages.dart';
 import 'package:meal_go/config/routes/app_routes.dart';
 import 'package:meal_go/feature/auth/views/screens/sign_in_screen.dart';
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           initialRoute: AppRoutes.signin,
           getPages: AppPages.pages,
+          initialBinding: AuthBinding(), // ✅ ONLY HERE
           home: child,
         );
       },

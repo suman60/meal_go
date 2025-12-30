@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:meal_go/controllers/auth_controller.dart';
 import 'package:meal_go/core/constants/app_colors.dart';
 import 'package:meal_go/core/constants/app_text_styles.dart';
 import 'package:meal_go/core/resource/widgets/custom_app_bar.dart';
 import 'package:meal_go/core/resource/widgets/custom_button.dart';
 import 'package:meal_go/core/resource/widgets/custom_checkbox.dart';
 import 'package:meal_go/core/resource/widgets/take_input.dart';
-import 'package:meal_go/feature/auth/controller/auth_controller.dart';
 import 'package:meal_go/feature/auth/views/screens/forget_password_screen.dart';
 import 'package:meal_go/feature/auth/views/screens/sign_up_screen.dart';
 import 'package:meal_go/gen/assets.gen.dart';
@@ -108,9 +108,9 @@ class _SignInScreenState extends State<SignInScreen> {
                   onPressed: controller.isLoading.value
                       ? null
                       : () {
-                          controller.signIn(
-                            email: emailController.text.trim(),
-                            password: passwordController.text.trim(),
+                          controller.login(
+                            emailController.text.trim(),
+                            passwordController.text.trim(),
                           );
                         },
                 ),

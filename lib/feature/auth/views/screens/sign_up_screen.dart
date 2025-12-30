@@ -5,13 +5,13 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/state_manager.dart';
+import 'package:meal_go/controllers/auth_controller.dart';
 import 'package:meal_go/core/constants/app_colors.dart';
 import 'package:meal_go/core/constants/app_text_styles.dart';
 import 'package:meal_go/core/resource/widgets/custom_app_bar.dart';
 import 'package:meal_go/core/resource/widgets/custom_button.dart';
 import 'package:meal_go/core/resource/widgets/custom_checkbox.dart';
 import 'package:meal_go/core/resource/widgets/take_input.dart';
-import 'package:meal_go/feature/auth/controller/auth_controller.dart';
 import 'package:meal_go/feature/auth/views/screens/congratulations_screen.dart';
 import 'package:meal_go/gen/assets.gen.dart';
 
@@ -101,11 +101,11 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: controller.isLoading.value
                       ? null
                       : () {
-                          controller.signUp(
-                            fullName: _nameController.text.trim(),
-                            email: _emailController.text.trim(),
-                            password: _passwordController.text.trim(),
-                          );
+                          // controller.signUp(
+                          //   fullName: _nameController.text.trim(),
+                          //   email: _emailController.text.trim(),
+                          //   password: _passwordController.text.trim(),
+                          // );
                         },
                 ),
               ),
