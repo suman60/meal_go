@@ -101,11 +101,12 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   onPressed: controller.isLoading.value
                       ? null
                       : () {
-                          // controller.signUp(
-                          //   fullName: _nameController.text.trim(),
-                          //   email: _emailController.text.trim(),
-                          //   password: _passwordController.text.trim(),
-                          // );
+                          controller.signUp(
+                            _nameController.text.trim(),
+                            _emailController.text.trim(),
+                            _passwordController.text.trim(),
+                            "1234567899",
+                          );
                         },
                 ),
               ),

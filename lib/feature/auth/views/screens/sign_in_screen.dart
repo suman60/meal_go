@@ -108,10 +108,7 @@ class _SignInScreenState extends State<SignInScreen> {
                   onPressed: controller.isLoading.value
                       ? null
                       : () {
-                          controller.login(
-                            emailController.text.trim(),
-                            passwordController.text.trim(),
-                          );
+                          controller.login(emailController.text.trim(), passwordController.text.trim());
                         },
                 ),
               ),

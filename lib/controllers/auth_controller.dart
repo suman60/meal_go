@@ -12,23 +12,24 @@ class AuthController extends GetxController {
   final isLoading = false.obs;
   final Rxn<LoginResponseModel> currentUser = Rxn<LoginResponseModel>();
 
-  // Future<void> signUp(String fullName, String email, String password) async {
-  //   if (fullName.isEmpty || email.isEmpty || password.isEmpty) {
-  //     Get.snackbar("Error", "All fields are required");
-  //     return;
-  //   }
+  Future<void> signUp(String fullName, String email, String password, String phone) async {
+    if (fullName.isEmpty || email.isEmpty || password.isEmpty) {
+      Get.snackbar("Error", "All fields are required");
+      return;
+    }
 
-  //   try {
-  //     isLoading.value = true;
-  //     final user = await _repository.signUp(fullName, email, password);
-  //     currentUser.value = user;
-  //     Get.toNamed(AppRoutes.otpVerify, arguments: {'email': email});
-  //   } catch (e) {
-  //     Get.snackbar("Signup Failed", e.toString());
-  //   } finally {
-  //     isLoading.value = false;
-  //   }
-  // }
+    try {
+      isLoading.value = true;
+      final user = await _repository.signUp(fullName, email, password, phone);
+      print(user);
+      // currentUser.value = user;
+      Get.toNamed(AppRoutes.otpVerify, arguments: {'email': email});
+    } catch (e) {
+      Get.snackbar("Signup Failed", e.toString());
+    } finally {
+      isLoading.value = false;
+    }
+  }
 
   // Future<void> verifyOtp(String email, String otp) async {
   //   if (otp.isEmpty) {
@@ -59,7 +60,6 @@ class AuthController extends GetxController {
 
       final user = await _repository.login(email, password);
       currentUser.value = user;
-
       // ✅ Direct login → Home
       Get.offAllNamed(AppRoutes.home);
     } catch (e) {

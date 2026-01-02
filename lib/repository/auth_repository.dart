@@ -13,11 +13,17 @@ class AuthRepository {
     String fullName,
     String email,
     String password,
+    String phone,
   ) async {
     final data = await _apiClient.request(
-      endpoint: 'signup',
+      endpoint: '/api/auth/signup/',
       method: 'POST',
-      body: {'fullName': fullName, 'email': email, 'password': password},
+      body: {
+        'fullName': fullName,
+        'email': email,
+        'password': password,
+        'phone': phone,
+      },
     );
     return UserModel.fromJson(data);
   }
@@ -33,7 +39,7 @@ class AuthRepository {
 
   Future<LoginResponseModel> login(String email, String password) async {
     final data = await _apiClient.request(
-      endpoint: 'api/auth/login',
+      endpoint: '/api/auth/login/',
       method: 'POST',
       body: {'email': email, 'password': password},
     );
